@@ -3,13 +3,15 @@ import dotenv from 'dotenv/config';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import {mongoose} from 'mongoose';
-
+const app = express();
 //database connection
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log('Database connected!'))
-.catch((err) => console.log('Database NOT connected', err))
+.catch((err) => console.log('Database NOT connected', err));
 
-const app = express();
+// middleware
+app.use(express.json());
+
 
 app.use('/', authRoutes);
 
