@@ -1,21 +1,9 @@
-const express = require('express');
-const dotenv = require('dotenv').config();
-const cors = require('cors');
+import express from 'express';
+import dotenv from 'dotenv/config';
+import cors from 'cors'
 const app = express();
 
-app.get('/', (req,res) => {
-    console.log(req);
-    return res.status(234).send('Hello this is my website');
-});
+const port = 8000;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-mongoose
-    .connect(mongoDBURL)
-    .then(() => {
-        console.log('App connected to database.');
-        app.listen (PORT, () => {
-            console.log(`App is listening to port: ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+
