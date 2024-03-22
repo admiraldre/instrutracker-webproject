@@ -1,7 +1,8 @@
 import express from 'express';
-
+import cors from 'cors';
+import { test } from '../controllers/authControllers.js'
 const router = express.Router();
-const cors = require('cors');
+
 
 // middleware
 router.use(
@@ -13,4 +14,4 @@ router.use(
 
 router.get('/', test);
 
-module.exports = router;
+export default router;
