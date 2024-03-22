@@ -1,6 +1,6 @@
-import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
-import mongoose from "mongoose";
+const express = require('express');
+const dotenv = require('dotenv').config();
+const cors = require('cors');
 const app = express();
 
 app.get('/', (req,res) => {
