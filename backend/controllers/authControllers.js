@@ -1,6 +1,6 @@
 import User from '../models/user.js';
 import { hashPassword, comparePassword } from '../helpers/auth.js';
-import { hash } from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export const test = (req, res) => {
     res.json('test is working');
@@ -62,7 +62,10 @@ export const loginUser = async (req,res) => {
         //Check if passwords match
         const match = await comparePassword(password, user.password)
         if(match){
-            res.json('Passwords match!')
+            jwt.sign({email: user.email, id: user._id, name: user.name}, process.env.JWT_SECRET, {}, (err,token) => {
+                if(err) throw err;
+                res.cookie('token', token).json(user);
+            } )
         }
         if(!match){
             res.json({
@@ -73,3 +76,15 @@ export const loginUser = async (req,res) => {
         console.log(error)
     }
 };
+
+export const getProfile = (req,res) => {
+    const {token} = req.cookies;
+    if(token){
+        jwt.verify(token, process.env.JWT_SECRET, {}, (err,user) => {
+            if(err) throw err;
+            res.json(user);
+        })
+    } else {
+        res.json(null);
+    }
+}
