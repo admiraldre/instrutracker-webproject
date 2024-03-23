@@ -13,12 +13,12 @@ export default function Register() {
   })
   const registerUser = async (e) => {
     e.preventDefault();
-    const {name,email,password} = data
+    const { name, email, password } = data
     try {
-      const {data} = await axios.post('/register', {
+      const { data } = await axios.post('/register', {
         name, email, password
       });
-      if(data.error){
+      if (data.error) {
         toast.error(data.error);
       } else {
         setData({});
@@ -30,17 +30,20 @@ export default function Register() {
     }
   }
   return (
-    <div>
-      <h1>This is the Register Page</h1>
-      <form onSubmit={registerUser}>
-        <label>Name</label>
-        <input type='text' placeholder='Enter Name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} />
-        <label>Email</label>
-        <input type='email' placeholder='Enter email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
-        <label>Password</label>
-        <input type='password' placeholder='Enter password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
-        <button type='submit'>Submit</button>
-      </form>
+    <div className='container'>
+      <div className='registerpage'>
+        <h1>This is the Register Page</h1>
+        <form onSubmit={registerUser}>
+          <label>Name</label>
+          <input type='text' placeholder='Enter Name' value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} />
+          <label>Email</label>
+          <input type='email' placeholder='Enter email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
+          <label>Password</label>
+          <input type='password' placeholder='Enter password' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
     </div>
+
   )
 }

@@ -1,1 +1,28 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.aboutpage,
+.dashboardpage,
+.errorpage,
+.homepage,
+.loginpage,
+.registerpage,
+.resultpage,
+.settingspage {
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
 

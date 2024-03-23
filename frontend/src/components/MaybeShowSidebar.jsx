@@ -7,10 +7,10 @@ const MaybeShowSidebar = ({children}) => {
     const [ showSidebar, setShowSidebar] = useState(false);
     useEffect(() => {
         console.log("this is location: ", location)
-        if(location.pathname === '/'){
-            setShowSidebar(false);
-        } else {
+        if(location.pathname === '/dashboard' || location.pathname === '/settings' ){
             setShowSidebar(true);
+        } else {
+            setShowSidebar(false);
         }
     },[location.pathname]);
   return (

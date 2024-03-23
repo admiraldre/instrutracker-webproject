@@ -38,14 +38,17 @@ const ResultPage = () => {
   };
 
   return (
-    <div>
-      <h2>Quiz Result</h2>
-      <p>{calculateResult()}</p>
-      <p>Want to know more about that family? Join InstruTracker now!</p>
-      <section className='join'>
-        <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
-      </section>
+    <div className='container'>
+      <div className='resultpage'>
+        <h2>Quiz Result</h2>
+        <p>{calculateResult()}</p>
+        <p>Want to know more about that family? Join InstruTracker now!</p>
+        <section className='join'>
+          <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
+        </section>
+      </div>
     </div>
+
   );
 };
 
