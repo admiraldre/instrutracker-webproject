@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import ErrorPage from './pages/ErrorPage';
 import ResultPage from './pages/ResultPage';
 import MaybeShowNavBar from './components/MaybeShowNavBar';
+import Sidebar from './components/Sidebar';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
@@ -21,6 +22,7 @@ function App() {
   return (
     <UserContextProvider>
       <MaybeShowNavBar>
+        <Sidebar/>
         <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
         <Routes>
           <Route path='/' element={<Home />}></Route>
