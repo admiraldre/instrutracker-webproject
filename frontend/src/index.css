@@ -9,15 +9,19 @@ body {
   margin: 0;
   padding: 0;
 }
-.navBar{
+
+.navBar {
   background-color: #FFD700;
   color: #917800;
 }
+
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+}
+
+.dashboardpage h1 {
+  font-size: 50px;
 }
 
 footer {
@@ -56,6 +60,7 @@ footer {
 .registerpage label {
   margin-bottom: 5px;
 }
+
 .registerpage p a {
   color: #007bff;
   text-decoration: none;
@@ -220,4 +225,3 @@ footer {
 .resultpage .join-button:hover {
   background-color: #0056b3;
 }
-

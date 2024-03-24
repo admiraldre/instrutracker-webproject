@@ -1,4 +1,3 @@
-// import './App.css'
 import React , {useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from '../src/components/Footer';
@@ -16,6 +15,10 @@ import About from './pages/About';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
+import Practice from './pages/Practice';
+import Goal from './pages/Goal';
+import Achievements from './pages/Achievements';
+import Forum from './pages/Forum';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
@@ -36,6 +39,10 @@ function App() {
               <Route path='/settings' element={<Settings />}></Route>
               <Route path='/profile' element={<Profile/>}></Route>
               <Route path='/contact' element={<Contact/>}></Route>
+              <Route path='/practice' element={<Practice/>}></Route>
+              <Route path='/goal' element={<Goal/>}></Route>
+              <Route path='/achievements' element={<Achievements/>}></Route>
+              <Route path='/forum' element={<Forum/>}></Route>
               <Route path='*' element={<ErrorPage />}></Route>
             </Routes>
         </MaybeShowNavBar>

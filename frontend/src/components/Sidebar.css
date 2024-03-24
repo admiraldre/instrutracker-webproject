@@ -11,7 +11,7 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    background-color: #324075;
+    background-color: #404040;
     color: #fff;
     height: auto;
     width: 200px;
@@ -39,12 +39,12 @@
     transition: all 0.5s;
 }
 .link:hover{
-    background:lightskyblue;
+    background:#FFD700;
     color: #000;
     transition: all 0.5s;
 }
 .active{
-    background: lightskyblue;
+    background: #FFD700;
     color: #000;
 }
 .icon, .link_text{
@@ -56,4 +56,8 @@
     align-items: center;
     justify-content: center;
     padding-top: 20px;
+}
+
+.logoutActualButton{
+    font-weight: bold;
 }

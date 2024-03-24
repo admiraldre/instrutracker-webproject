@@ -4,6 +4,7 @@ import * as IoIcons from 'react-icons/io5';
 import * as MdIcons from 'react-icons/md';
 import * as GoIcons from 'react-icons/go';
 
+
 export const SidebarData = [
     {
         title: "Dashboard",
@@ -39,6 +40,12 @@ export const SidebarData = [
         title: "Settings",
         path: "/settings",
         icon: <IoIcons.IoSettings/>,
+        cName: 'sid-text'
+    },
+    {
+        title: "Public Forum",
+        path: "/forum",
+        icon: <MdIcons.MdForum/>,
         cName: 'sid-text'
     }
 ]

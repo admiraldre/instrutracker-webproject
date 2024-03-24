@@ -42,7 +42,7 @@ const Sidebar = ({children}) => {
                         ))
                     }
                     <div className='logoutButton' style={{display: isOpen ? "": "none"}} ><IoIcons.IoExit/>
-                    <button onClick={handleLogout}>Logout</button></div>
+                    <button className='logoutActualButton' onClick={handleLogout}>Logout</button></div>
                 </div>
                 <main className='main-children'>{children}</main>
                 

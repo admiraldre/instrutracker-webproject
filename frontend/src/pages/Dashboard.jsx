@@ -10,7 +10,7 @@ const Dashboard = () => {
       <div className='container'>
         <div className='dashboardpage'>
           <h1>Dashboard</h1>
-          {!!user && (<h2>Hi {user.name}!</h2>)}
+          {!!user && (<h2>Hello {user.name}!</h2>)}
         </div>
       </div>
     </Sidebar>
