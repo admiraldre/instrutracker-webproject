@@ -43,7 +43,7 @@ export const SidebarData = [
     },
     {
         title: "Logout",
-        path: "/",
+        path: "/login",
         icon: <IoIcons.IoExit/>,
         cName: 'sid-text'
     }

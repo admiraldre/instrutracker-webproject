@@ -88,3 +88,8 @@ export const getProfile = (req,res) => {
         res.json(null);
     }
 }
+
+export const userLogout = (req,res) => {
+    res.clearCookie('token');
+    return res.json({status: true});
+}

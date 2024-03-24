@@ -60,52 +60,37 @@ const Home = () => {
   };
 
   return (
-    <div className='container'>
-      <div className='homepage'>
-        <section className='hero-section'>
-          <h1 className='home-title'>InstruTracker</h1>
-          <h3 className='home-subtitle'>The next-generation music practice platform.</h3>
-          <h5 className='home-subSubtitle'>Track, set goals, share your musical journey in practicing musical instruments with InstruTracker.</h5>
-        </section>
-        <section className='join'>
-          <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
-        </section>
-        <section className='app-features'>
-        </section>
-        <div className='mini-quiz'>
-          {!quizStarted ? ( // Render "Take quiz" button if quiz hasn't started
-            <button onClick={startQuiz}>Take Quiz</button>
-          ) : (
-            <div>
-              <h2>{questions[currentQuestionIndex].question}</h2>
-              <div>
-                {questions[currentQuestionIndex].options.map((option, index) => (
-                  <button key={index} onClick={() => handleAnswer(option.value, currentQuestionIndex)}>
-                    {option.text}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+<div className='container'>
+  <div className='homepage'>
+    <section className='hero-section'>
+      <h1 className='home-title'>InstruTracker</h1>
+      <h3 className='home-subtitle'>The next-generation music practice platform.</h3>
+      <h5 className='home-subSubtitle'>Track, set goals, share your musical journey in practicing musical instruments with InstruTracker.</h5>
+    </section>
+    <section className='join'>
+      <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
+    </section>
+    <section className='app-features'>
+    </section>
+    <div className='quiz-container'>
+      {!quizStarted ? ( // Render "Take quiz" button if quiz hasn't started
+        <button onClick={startQuiz}>Take Quiz</button>
+      ) : (
+        <div>
+          <h2>{questions[currentQuestionIndex].question}</h2>
+          <div>
+            {questions[currentQuestionIndex].options.map((option, index) => (
+              <button key={index} onClick={() => handleAnswer(option.value, currentQuestionIndex)}>
+                {option.text}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
+  </div>
+</div>
   );
 };
 
 export default Home;
-
-
-
-
-
-{/* <section className='hero-section'>
-        <h1 className='home-title'>InstruTracker</h1>
-        <h3 className='home-subtitle'>The next-generation music practice platform.</h3>
-        <h5 className='home-subSubtitle'>Track, set goals, share your musical journey in practicing musical instruments with InstruTracker.</h5>
-      </section>
-      <section className='join'>
-        <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
-      </section>
-      <section className='app-features'>
-      </section> */}
