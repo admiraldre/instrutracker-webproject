@@ -1,16 +1,14 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function Login() {
+const Login = ({ handleRefresh }) => {
   const navigate = useNavigate();
-
   const [data, setData] = useState({
     email: '',
     password: ''
-  })
+  });
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -27,13 +25,14 @@ export default function Login() {
         navigate('/dashboard');
       }
     } catch (error) {
-
+      console.error(error);
     }
   }
+  
   return (
     <div className='container'>
       <div className='loginpage'>
-        <h1>This is the Login Page</h1>
+        <h1 className=''>This is the Login Page</h1>
         <form onSubmit={loginUser}>
           <label>Email</label>
           <input type='email' placeholder='Enter email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
@@ -44,6 +43,7 @@ export default function Login() {
         <p>New to InstruTracker? <Link to='/register'>Register here.</Link></p>
       </div>
     </div>
-
-  )
+  );
 }
+
+export default Login;

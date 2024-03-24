@@ -1,5 +1,6 @@
 .side-container{
     display: flex;
+    height: 100%;
 }
 
 .main-children{
@@ -12,7 +13,7 @@
     flex-direction: column;
     background-color: #324075;
     color: #fff;
-    height: 100vh;
+    height: auto;
     width: 200px;
     transition: all 0.5s;
 }
@@ -48,4 +49,11 @@
 }
 .icon, .link_text{
     font-size: 20px;
+}
+
+.logoutButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
 }

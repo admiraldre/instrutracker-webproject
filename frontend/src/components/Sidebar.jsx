@@ -41,9 +41,11 @@ const Sidebar = ({children}) => {
                             </NavLink>
                         ))
                     }
+                    <div className='logoutButton' style={{display: isOpen ? "": "none"}} ><IoIcons.IoExit/>
+                    <button onClick={handleLogout}>Logout</button></div>
                 </div>
                 <main className='main-children'>{children}</main>
-                <button onClick={handleLogout}>Logout</button>
+                
             </div>
         </IconContext.Provider>
     );

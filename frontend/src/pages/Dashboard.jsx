@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
 import Sidebar from '../components/Sidebar';
 
-export default function Dashboard() {
+const Dashboard = () => {
   const { user } = useContext(UserContext);
-  return (
 
+  return (
     <Sidebar>
       <div className='container'>
         <div className='dashboardpage'>
@@ -13,9 +13,8 @@ export default function Dashboard() {
           {!!user && (<h2>Hi {user.name}!</h2>)}
         </div>
       </div>
-
     </Sidebar>
+  );
+};
 
-
-  )
-}
+export default Dashboard;

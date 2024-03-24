@@ -7,10 +7,10 @@ const MaybeShowNavBar = ({children}) => {
     const [ showNavbar, setShowNavbar] = useState(false);
     useEffect(() => {
         console.log("this is location: ", location)
-        if(location.pathname === '/dashboard' || location.pathname === '/profile'){
-            setShowNavbar(false);
-        } else {
+        if(location.pathname === '/' || location.pathname === '/about' || location.pathname === '/contact' || location.pathname === '/register' || location.pathname === '/login' || location.pathname === '/result'){
             setShowNavbar(true);
+        } else {
+            setShowNavbar(false);
         }
     },[location.pathname]);
   return (

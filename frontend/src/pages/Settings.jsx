@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Sidebar from '../components/Sidebar';
 
 const Settings = () => {
   return (
-    <div className='container'>
-      <div className='settingspage'>
-        This is the settings page
+    <Sidebar>
+      <div className='container'>
+        <div className='settingspage'>
+          This is the settings page
+        </div>
       </div>
-    </div>
+    </Sidebar>
 
   )
 }

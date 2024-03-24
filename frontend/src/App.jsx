@@ -1,4 +1,5 @@
 // import './App.css'
+import React , {useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from '../src/components/Footer';
 import Home from '../src/pages/Home';
@@ -20,7 +21,6 @@ axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
 function App() {
-
   return (
     <div className='App'>
       <UserContextProvider>
@@ -38,8 +38,8 @@ function App() {
               <Route path='/contact' element={<Contact/>}></Route>
               <Route path='*' element={<ErrorPage />}></Route>
             </Routes>
-            <Footer />
         </MaybeShowNavBar>
+        <Footer />
       </UserContextProvider>
     </div>
 

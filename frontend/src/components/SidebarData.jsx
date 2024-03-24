@@ -40,12 +40,6 @@ export const SidebarData = [
         path: "/settings",
         icon: <IoIcons.IoSettings/>,
         cName: 'sid-text'
-    },
-    {
-        title: "Logout",
-        path: "/login",
-        icon: <IoIcons.IoExit/>,
-        cName: 'sid-text'
     }
 ]
 

@@ -8,7 +8,7 @@ body {
 }
 
 .navBar {
-    background-color: rgb(50, 64, 117);
+    /* background-color: #00adb5; */
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
@@ -47,7 +47,7 @@ body {
 
 .logsign{
     display: inline-block;
-    background-color: rgb(26, 33, 61);
+    background-color: #FF4500;
     color: #fff;
     border: none;
     border-radius: 5px;

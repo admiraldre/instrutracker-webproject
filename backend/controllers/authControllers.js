@@ -1,4 +1,5 @@
 import User from '../models/user.js';
+import Profile from '../models/data.js';
 import { hashPassword, comparePassword } from '../helpers/auth.js';
 import jwt from 'jsonwebtoken';
 
@@ -92,4 +93,16 @@ export const getProfile = (req,res) => {
 export const userLogout = (req,res) => {
     res.clearCookie('token');
     return res.json({status: true});
+}
+
+export const setGoal = async (req,res) => {
+    try {
+        const { title, goals } = req.body;
+        const userId = req.user.id;
+        const goalName = new Profile({ user: userId, title, goals});
+        await goalName.save();
+        res.status(201).json(goalName);
+    } catch (error) {
+        res.status(500).json({message: 'Server error'})
+    }
 }
