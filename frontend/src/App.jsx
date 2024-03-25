@@ -17,7 +17,6 @@ import Profile from './pages/Profile';
 import Contact from './pages/Contact';
 import Practice from './pages/Practice';
 import Goal from './pages/Goal';
-import Achievements from './pages/Achievements';
 import Forum from './pages/Forum';
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -41,7 +40,6 @@ function App() {
               <Route path='/contact' element={<Contact/>}></Route>
               <Route path='/practice' element={<Practice/>}></Route>
               <Route path='/goal' element={<Goal/>}></Route>
-              <Route path='/achievements' element={<Achievements/>}></Route>
               <Route path='/forum' element={<Forum/>}></Route>
               <Route path='*' element={<ErrorPage />}></Route>
             </Routes>

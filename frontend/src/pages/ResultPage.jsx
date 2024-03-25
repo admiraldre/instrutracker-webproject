@@ -34,14 +34,14 @@ const ResultPage = () => {
       d: "Percussion"
     };
 
-    return `You're part of the ${instrumentFamilies[result]} family!`;
+    return `You might like the ${instrumentFamilies[result]} instruments!`;
   };
 
   return (
-    <div className='container'>
+    <div className=''>
       <div className='resultpage'>
         <h2>Quiz Result</h2>
-        <p>{calculateResult()}</p>
+        <p className='actual-result'>{calculateResult()}</p><br/>
         <p>Want to know more about that family? Join InstruTracker now!</p>
         <section className='join'>
           <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>

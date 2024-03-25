@@ -106,3 +106,20 @@ export const setGoal = async (req,res) => {
         res.status(500).json({message: 'Server error'})
     }
 }
+
+
+// for Practice
+
+export const viewPractice = (req,res) => {
+
+}
+
+export const logPractice = (req,res) => {
+    
+}
+export const deletePractice = (req,res) => {
+    
+}
+export const updatePractice = (req,res) => {
+    
+}

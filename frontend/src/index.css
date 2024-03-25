@@ -37,10 +37,123 @@ body {
   width: 100%;
 }
 
+/* navbar */
+
 .navBar {
   background-color: var(--primary-100);
-  color: var(--primary-300);
+  color: var(--bg-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
+
+.site-title{
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  margin: 1rem;
+}
+
+.navBar ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navBar a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: block;
+  align-items: center;
+  padding: .5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.logsign{
+  display: inline-block;
+  background-color: #FF4500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+}
+
+.logsign:hover {
+  background-color: var(--primary-300)
+}
+.navBar li:hover{
+  transition: background-color 0.3s ease;
+  background-color: var(--primary-300);
+  color: var(--text-100);
+  border: none;
+  border-radius: 5px;
+}
+
+
+nav .menu{
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+nav .menu span{
+  height: 0.4rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 740px) {
+  .navBar .menu{
+      display: flex;
+      cursor: pointer;
+  }
+  .navBar{
+      flex-direction: column;
+      align-items: start;
+  }
+  .navBar ul{
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+  }
+  .navBar ul.open{
+      display: flex;
+  }
+
+  .navbar ul li{
+      width: 100%;
+      text-align: center;
+  }
+
+  .navBar ul li a{
+      margin: 0.2rem 0.5rem;
+  }
+
+  .navBar button{
+      margin: 0.2rem 0.5rem;
+  }
+}
+/* sidebar */
 
 .side-container {
   display: flex;
@@ -63,7 +176,7 @@ body {
   background-color: var(--bg-100);
   color: var(--text-100);
   height: auto;
-  width: 100%;
+  width: 200px;
   transition: all 0.5s;
 }
 
@@ -152,7 +265,7 @@ footer {
 
 .links a {
   text-decoration: none;
-  color: #917800;
+  color: var(--bg-100);
   cursor: pointer;
 }
 
@@ -166,14 +279,13 @@ footer {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
-  color: #917800;
-  ;
+  color: var(--bg-100);
 }
 
 .footer-bottom span a {
   text-transform: uppercase;
   opacity: .5;
-  color: #917800;
+  color: var(--bg-100);
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
@@ -216,13 +328,6 @@ footer {
   color: #FF4500;
 }
 
-/* dashboard */
-
-.dashboardpage h1 {
-  font-size: 40px;
-  font-weight: bold;
-}
-
 /* register */
 
 .registerpage {
@@ -231,8 +336,10 @@ footer {
   flex-direction: column;
   padding: 20px;
   justify-content: center;
-  width: auto;
+  align-items: center;
   border-radius: 8px;
+  margin: 0 auto; 
+  max-width: 600px; 
 }
 
 .registerpage h1 {
@@ -244,6 +351,7 @@ footer {
 .registerpage form {
   display: flex;
   flex-direction: column;
+  width: 100%; 
 }
 
 .registerpage label {
@@ -251,7 +359,7 @@ footer {
 }
 
 .registerpage p a {
-  color: var(--link-100);
+  color: var(--accent-100);
   text-decoration: none;
 }
 
@@ -273,12 +381,13 @@ footer {
 }
 
 .registerpage button:hover {
-  background-color: var(--accent-100);
+  background-color: var(--bg-300);
 }
 
 .registerpage p a:hover {
   text-decoration: underline;
 }
+
 
 /* login */
 
@@ -288,8 +397,10 @@ footer {
   flex-direction: column;
   padding: 20px;
   justify-content: center;
-  width: auto;
+  align-items: center;
   border-radius: 8px;
+  margin: 0 auto; 
+  max-width: 600px; 
 }
 
 .loginpage h1 {
@@ -301,6 +412,7 @@ footer {
 .loginpage form {
   display: flex;
   flex-direction: column;
+  width: 100%; 
 }
 
 .loginpage label {
@@ -325,7 +437,7 @@ footer {
 }
 
 .loginpage button:hover {
-  background-color: var(--link-100);
+  background-color: var(--bg-300);
 }
 
 .loginpage p {
@@ -351,14 +463,19 @@ footer {
 
 .hero-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  padding: 15rem;
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+  height: 100vh;
   text-align: center;
-  padding: 100px 20px;
+  align-items: center;
 }
 
 .home-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-weight: bolder;
+  font-size: 5rem;
+  margin-bottom: 10px;
 }
 
 .home-subtitle {
@@ -373,20 +490,97 @@ footer {
 
 .join {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .join .join-button {
   background-color: var(--accent-100);
+  color: var(--text-100);
   padding: 10px 20px;
   border-radius: 4px;
 }
 
+.feature-maintitle {
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.feature-mt {
+  font-size: 4rem; 
+  color:var(--primary-100); 
+}
+
+.app-features{
+  display: flex;
+  height: 90vh;
+  justify-content: space-between;
+  padding: 2rem 4rem 4rem 4rem; 
+  gap: 2rem;
+}
+
+.app-features-section{
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100rem;
+  height: 22rem;
+}
+
+.feature{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-title{
+  font-size: 3rem;
+  font-weight: bold;
+}
+.feature-description{
+  font-size: 1rem;
+  align-items: center;
+}
+
+.testimonials{
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+  padding: 5rem;
+}
+
+.testimonials-title{
+  font-size: 4rem; 
+  font-weight: bold;
+  color:var(--bg-100); 
+}
+
+.testimonials-section{
+  background-color: var(--bg-100);
+  color: var(--primary-100);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+.testimonials-section h2{
+  padding-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 .quiz-container {
   display: flex;
+  flex-direction: column;
   padding: 30px 30px;
   border-radius: 8px;
+  background-color: var(--bg-100);
+  color: var(--primary-100);
+  height: auto;
+  text-align: center;
+}
+
+.quiz-container p{
+  font-size: 2rem;
+  padding: 2rem;
 }
 
 .quiz-container h2 {
@@ -403,29 +597,33 @@ footer {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 400px;
+  width: auto;
+  height: fit-content;
 }
 
 .quiz-container button:hover {
-  background-color: var(--link-100);
+  background-color: var(--bg-300)
 }
 
 /* result */
 
 .resultpage {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  padding: 50px 0;
+  padding: 15rem;
+  align-items: center;
 }
 
 .resultpage h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 20px;
+}
+.actual-result{
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.resultpage p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
 
 .resultpage .join {
   margin-top: 20px;
@@ -433,7 +631,7 @@ footer {
 
 .resultpage .join-button {
   padding: 10px 20px;
-  background-color: var(--link-100);
+  background-color: var(--accent-100);
   color: var(--text-100);
   border: none;
   border-radius: 4px;
@@ -441,7 +639,7 @@ footer {
 }
 
 .resultpage .join-button:hover {
-  background-color: var(--link-100);
+  background-color: var(--bg-300);
 }
 
 /* forum page */
@@ -450,6 +648,15 @@ footer {
   display: flex;
   flex-direction: column;
   height: auto;
+  width: auto;
+}
+
+.forumPage .create-post {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-300);
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
 
 .forumpage .pagetitle {
@@ -464,8 +671,22 @@ footer {
   border: 1px solid var(--text-200);
 }
 
+.forumPage .input-postdesc {
+  width: 50vw;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--text-200);
+}
+
+.forumPage .chooseImg {
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
 .forumPage .postButton {
   background-color: var(--accent-100);
+  width: fit-content;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -526,3 +747,150 @@ footer {
   padding: 10px 20px;
   border-radius: 4px;
 }
+
+/* about page */
+
+.aboutpage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem; 
+}
+
+.aboutpage h1 {
+  font-size: 2.5rem; 
+  color: var(--primary-100); 
+  margin-bottom: 20px;
+}
+
+.aboutpage h2 {
+  font-size: 2rem; 
+  color: var(--primary-100); 
+  margin-top: 30px;
+}
+
+.aboutpage p {
+  font-size: 1.2rem; 
+  line-height: 1.6; 
+  color: var(--text-100); 
+  margin-bottom: 20px; 
+}
+
+/* contact page */
+.contactpage {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 8rem 8rem 8rem;
+  align-items: center;
+}
+
+.contactpage h2 {
+  color: var(--primary-100);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactpage p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contactpage form {
+  max-width: 500px; 
+}
+
+.contactpage label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.contactpage input,
+.contactpage textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contactpage textarea {
+  resize: vertical;
+}
+
+.contactpage button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-100);/* Adjust color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contactpage button:hover {
+  background-color: var(--bg-300); /* Adjust hover color as needed */
+}
+
+/* dashboard */
+
+.dashboardpage{
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-top{
+  display: flex;
+  gap: 2rem;
+  
+}
+
+/* settings */
+.settingspage{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Profile */
+.profilepage{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-top h1{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.currentuserpost{
+  background-color: #404040;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.currentuserpost a{
+  margin-left: 1rem;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.currentuserpost .edit-btn{
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+}
+
+.currentuserpost .normal-btn{
+  background-color: var(--text-100);
+  color: var(--bg-100);
+}
+
+.currentuserpost .danger-btn{
+  background-color: var(--accent-100);
+  color: var(--bg-100);
+}
+

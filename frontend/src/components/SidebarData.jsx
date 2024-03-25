@@ -31,12 +31,6 @@ export const SidebarData = [
         cName: 'sid-text'
     },
     {
-        title: "Achievements",
-        path: "/achievements",
-        icon: <FaIcons.FaAward/>,
-        cName: 'sid-text'
-    },
-    {
         title: "Settings",
         path: "/settings",
         icon: <IoIcons.IoSettings/>,

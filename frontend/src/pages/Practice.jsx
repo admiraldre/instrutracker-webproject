@@ -2,11 +2,23 @@ import React from 'react'
 import Sidebar from '../components/Sidebar';
 
 const Practice = () => {
-  return (
+  const logNewSession = () => {
+
+  }
+    return (
     <div>
       <Sidebar>
-        <div className='container'>
-        <div className='page-title'>My Practice Log</div>
+        <div className='practicepage'>
+          <div className='page-title'>My Practice Log</div>
+          <div className="practice-top">
+            <form className='newSession' onSubmit={logNewSession}>
+
+            </form>
+          </div>
+          <div className="recentlogs">
+            <div className="rl-title">Recent Practice Sessions:</div>
+          </div>
+
         </div>
       </Sidebar>
     </div>
