@@ -14,14 +14,14 @@ export const registerUser = async (req, res) => {
         // Check if name was entered
         if (!name) {
             return res.json({
-                error: 'name is required.'
+                error: 'Name is required.'
             });
         };
 
         // Check if password is good
         if (!password || password.length < 6) {
             return res.json({
-                error: 'Password is required and should be at least characters long.'
+                error: 'Password is required and should be at least 6 characters long.'
             });
         };
 
@@ -29,7 +29,7 @@ export const registerUser = async (req, res) => {
         const exist = await User.findOne({ email });
         if (exist) {
             return res.json({
-                error: 'Email is taken already.'
+                error: 'Email is already.'
             });
         };
 
@@ -70,7 +70,7 @@ export const loginUser = async (req,res) => {
         }
         if(!match){
             res.json({
-                error: "Passwords do not match!"
+                error: "Incorrect Password!"
             })
         }
     } catch (error) {

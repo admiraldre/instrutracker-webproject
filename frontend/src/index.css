@@ -2,31 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-100: #FFD700;
+  --primary-200: #ddb900;
+  --primary-300: #917800;
+  --accent-100: #FF4500;
+  --accent-200: #ffe49a;
+  --text-100: #FFFFFF;
+  --text-200: #e0e0e0;
+  --bg-100: #1A1A1A;
+  --bg-200: #292929;
+  --bg-300: #404040;
+  --link-100: #007bff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #1A1A1A;
-  font-family: Arial, sans-serif;
+  background-color: var(--bg-100);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #FFFFFF;
   margin: 0;
   padding: 0;
 }
 
-.navBar {
-  background-color: #FFD700;
-  color: #917800;
-}
-
 .container {
   display: flex;
-  height: 100vh;
+  width: 100%;
 }
 
-.dashboardpage h1 {
-  font-size: 50px;
+.navBar {
+  background-color: var(--primary-100);
+  color: var(--primary-300);
 }
+
+.side-container {
+  display: flex;
+  height: 100%;
+}
+
+.actual-sidebar {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-children {
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-100);
+  color: var(--text-100);
+  height: auto;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.bars {
+  display: flex;
+  font-size: 30px;
+  width: 110%;
+  justify-content: center;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+
+.link:hover {
+  background: #FFD700;
+  border-radius: 2rem;
+  color: #000;
+  transition: all 0.5s;
+}
+
+.active {
+  background: #FFD700;
+  border-radius: 1rem;
+  color: #000;
+}
+
+.icon,
+.link_text {
+  font-size: 20px;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.logoutActualButton {
+  font-weight: bold;
+}
+
+/* footer */
 
 footer {
-  background-color: #FFD700;
-  color: #ffffff;
+  background-color: var(--primary-100);
+  color: var(--text-100);
   bottom: 0;
   left: 0;
   right: 0;
@@ -39,17 +130,115 @@ footer {
   margin-top: auto;
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 1rem 0;
+}
+
+.links li {
+  margin: 0 10px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #917800;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  width: 100vw;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+  color: #917800;
+  ;
+}
+
+.footer-bottom span a {
+  text-transform: uppercase;
+  opacity: .5;
+  color: #917800;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* universal page title */
+
+.page-title {
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 1rem;
+}
+
+/* error page */
+
+.errorPage {
+  text-align: center;
+  padding-top: 5rem;
+  margin-inline: center;
+  display: block;
+  width: 100%;
+  height: 100vh;
+}
+
+.errorPage h1 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.errorPage h3 {
+  font-size: 3rem;
+}
+
+.errorPage a {
+  text-decoration: underline;
+  color: #FF4500;
+}
+
+/* dashboard */
+
+.dashboardpage h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
 
 /* register */
 
 .registerpage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
+  justify-content: center;
+  width: auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .registerpage h1 {
   text-align: center;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .registerpage form {
@@ -62,41 +251,51 @@ footer {
 }
 
 .registerpage p a {
-  color: #007bff;
+  color: var(--link-100);
   text-decoration: none;
 }
 
 .registerpage input {
-  color: black;
+  color: var(--bg-100);
   padding: 8px;
   margin-bottom: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--text-200);
 }
 
 .registerpage button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--accent-100);
+  color: var(--text-100);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .registerpage button:hover {
-  background-color: #0056b3;
+  background-color: var(--accent-100);
+}
+
+.registerpage p a:hover {
+  text-decoration: underline;
 }
 
 /* login */
 
 .loginpage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
+  justify-content: center;
+  width: auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .loginpage h1 {
   text-align: center;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .loginpage form {
@@ -109,33 +308,32 @@ footer {
 }
 
 .loginpage input {
-  color: black;
+  color: var(--bg-100);
   padding: 8px;
   margin-bottom: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--text-200);
 }
 
 .loginpage button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--accent-100);
+  color: var(--text-100);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .loginpage button:hover {
-  background-color: #0056b3;
+  background-color: var(--link-100);
 }
 
 .loginpage p {
-  text-align: center;
   margin-top: 10px;
 }
 
 .loginpage p a {
-  color: #007bff;
+  color: var(--accent-100);
   text-decoration: none;
 }
 
@@ -146,11 +344,16 @@ footer {
 
 
 /* home page */
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
 
 .hero-section {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  padding: 100px 0;
-  background-color: #f5f5f5;
+  padding: 100px 20px;
 }
 
 .home-title {
@@ -168,28 +371,43 @@ footer {
   margin-bottom: 30px;
 }
 
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.join .join-button {
+  background-color: var(--accent-100);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
 .quiz-container {
-  padding: 30px 0;
-  /* Adjust padding as needed */
-  background-color: #f9f9f9;
-  /* Change the color to your preference */
+  display: flex;
+  padding: 30px 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container h2 {
+  font-size: 20px;
 }
 
 .quiz-container button {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: 10px auto;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--accent-100);
+  color: var(--text-100);
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 400px;
 }
 
 .quiz-container button:hover {
-  background-color: #0056b3;
+  background-color: var(--link-100);
 }
 
 /* result */
@@ -215,13 +433,96 @@ footer {
 
 .resultpage .join-button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--link-100);
+  color: var(--text-100);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .resultpage .join-button:hover {
-  background-color: #0056b3;
+  background-color: var(--link-100);
+}
+
+/* forum page */
+
+.forumPage {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.forumpage .pagetitle {
+  font-size: 60px;
+}
+
+.forumPage .input-post {
+  width: 50vw;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--text-200);
+}
+
+.forumPage .postButton {
+  background-color: var(--accent-100);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* posts in forum page */
+
+.container-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  /* in PostItem component*/
+  background-color: var(--bg-300);
+  padding: 1rem;
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+
+.like-comment {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+/* profile */
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+
+.profile-details h1 {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+.profile-details form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-details button {
+  background-color: var(--accent-100);
+  padding: 10px 20px;
+  border-radius: 4px;
 }

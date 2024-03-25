@@ -6,7 +6,7 @@ const Practice = () => {
     <div>
       <Sidebar>
         <div className='container'>
-            This is the Practice section:
+        <div className='page-title'>My Practice Log</div>
         </div>
       </Sidebar>
     </div>

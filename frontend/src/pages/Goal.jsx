@@ -6,7 +6,7 @@ const Goal = () => {
     <div>
       <Sidebar>
         <div className='container'>
-            This is the Goals section:
+          <div className='page-title'>My Goals</div>
         </div>
       </Sidebar>
     </div>

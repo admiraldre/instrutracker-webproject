@@ -14,7 +14,7 @@ export const SidebarData = [
     },
     {
         title: "Profile",
-        path: "/profile",
+        path: "/profile/:id",
         icon: <FaIcons.FaUser/>,
         cName: 'sid-text'
     },
@@ -43,7 +43,7 @@ export const SidebarData = [
         cName: 'sid-text'
     },
     {
-        title: "Public Forum",
+        title: "Forum",
         path: "/forum",
         icon: <MdIcons.MdForum/>,
         cName: 'sid-text'

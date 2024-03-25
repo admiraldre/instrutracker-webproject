@@ -6,7 +6,7 @@ const Achievements = () => {
     <div>
       <Sidebar>
         <div className='container'>
-            This is the Achievements section:
+          <div className='page-title'>My Achievements</div>
         </div>
       </Sidebar>
     </div>

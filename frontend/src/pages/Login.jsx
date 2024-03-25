@@ -22,17 +22,18 @@ const Login = ({ handleRefresh }) => {
         toast.error(data.error)
       } else {
         setData({});
+        toast.success('Successfully logged in!');
         navigate('/dashboard');
       }
     } catch (error) {
       console.error(error);
     }
   }
-  
+
   return (
-    <div className='container'>
+    <div className=''>
       <div className='loginpage'>
-        <h1 className=''>This is the Login Page</h1>
+        <h1 className=''>Log in to InstruTracker</h1>
         <form onSubmit={loginUser}>
           <label>Email</label>
           <input type='email' placeholder='Enter email' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />

@@ -60,7 +60,7 @@ const Home = () => {
   };
 
   return (
-<div className='container'>
+<div className=''>
   <div className='homepage'>
     <section className='hero-section'>
       <h1 className='home-title'>InstruTracker</h1>
@@ -73,12 +73,12 @@ const Home = () => {
     <section className='app-features'>
     </section>
     <div className='quiz-container'>
-      {!quizStarted ? ( // Render "Take quiz" button if quiz hasn't started
+      {!quizStarted ? ( 
         <button onClick={startQuiz}>Take Quiz</button>
       ) : (
         <div>
           <h2>{questions[currentQuestionIndex].question}</h2>
-          <div>
+          <div className='choices'>
             {questions[currentQuestionIndex].options.map((option, index) => (
               <button key={index} onClick={() => handleAnswer(option.value, currentQuestionIndex)}>
                 {option.text}
