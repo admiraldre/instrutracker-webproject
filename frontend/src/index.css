@@ -645,44 +645,8 @@ footer {
 
 /* forum page */
 
-.forumPage {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: auto;
-}
-.forumPage input[type="text"],
-textarea{
-  color: black;
-}
 
-/* posts in forum page */
 
-.container-post {
-  display: flex;
-  flex-direction: column;
-}
-
-.post {
-  /* in PostItem component*/
-  background-color: var(--bg-300);
-  padding: 1rem;
-  border-radius: 1rem;
-  padding-bottom: 2rem;
-}
-
-.post-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 2rem;
-}
-
-.like-comment {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
 
 /* profile */
 
@@ -746,6 +710,12 @@ textarea{
   align-items: center;
 }
 
+.contactpage .toast{
+  background-color: var(--primary-100);
+  color: var(--bg-100);
+  padding: 1rem;
+  border-radius: .25rem;
+}
 .contactpage h2 {
   color: var(--primary-100);
   font-size: 3rem;
@@ -774,6 +744,7 @@ textarea{
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: var(--bg-100);
 }
 
 .contactpage textarea {
@@ -1010,7 +981,19 @@ textarea{
 }
 
 
-/* settings */
-.profile-details input{
-  color: var(--bg-100);
+/* help */
+.helppage{
+  display: flex;
+  flex-direction: column;
+}
+
+.help-container{
+  background-color: var(--bg-300);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.hc-title{
+  font-size: 1.5rem;
+  font-weight: bold;
 }

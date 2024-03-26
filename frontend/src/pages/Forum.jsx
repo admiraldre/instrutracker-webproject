@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import { UserContext } from '../../context/userContext';
+import './forum.css'
 
 const Forum = () => {
     const [forumTitle, setForumTitle] = useState('');
@@ -83,6 +84,7 @@ const Forum = () => {
 
     return (
         <Sidebar>
+            <div className='page-title'>Public Forum</div><br/>
             <div className="forumpage">
                 <header className="App-header">
                     <form onSubmit={handleSubmit}>
@@ -94,14 +96,13 @@ const Forum = () => {
                             <label htmlFor="message">Forum Message:</label>
                             <textarea id="message" value={forumMessage} onChange={handleMessageChange}></textarea>
                         </div>
-                        <button type="submit">Submit</button>
+                        <button className='submit-btn'type="submit">Submit</button>
                     </form>
 
                     <div className="display-area">
                         {posts.map(post => (
                             <div key={post._id}>
                                 <h2>{post.title}</h2>
-                                <p>Posted by: {post.userName}</p> 
                                 <p>{post.description}</p>
                                 <button onClick={() => handleLike(post._id)}>Like</button> {post.likes?.length || 0}
 

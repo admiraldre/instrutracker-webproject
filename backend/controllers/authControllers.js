@@ -181,7 +181,7 @@ export const updatePractice = async (req, res) => {
     if (!userId) return res.status(401).json({ error: 'Unauthorized' });
 
     try {
-        const { id } = req.params; // Extract id from params
+        const { id } = req.params; 
         const { date, duration, notes } = req.body;
         const updatedSession = await Practice.findOneAndUpdate(
             { _id: id, userId },

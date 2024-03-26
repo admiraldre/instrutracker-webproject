@@ -4,7 +4,9 @@ import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
 import {mongoose} from 'mongoose';
 import cookieParser from 'cookie-parser';
-import Post from './models/post.js'
+import Post from './models/post.js';
+import User from './models/user.js';
+
 const app = express();
 
 mongoose.connect(process.env.MONGO_URL)
@@ -93,6 +95,8 @@ app.post('/forum/:postId/comments', async (req, res) => {
         res.status(500).json({ message: "Error adding comment" });
     }
 });
+
+
 
 app.use('/', authRoutes);
 

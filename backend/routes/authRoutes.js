@@ -39,11 +39,6 @@ router.get('/goals', authenticateToken, viewGoal);
 router.put('/goals/:id', authenticateToken, updateGoal);
 router.delete('/goals/:id', authenticateToken, deleteGoal);
 
-//for forum
-// router.post('http://localhost:8000/forum', createPost);
-// router.get('http://localhost:8000/forum', viewPost);
-// router.post('http://localhost:8000/forum/:postId/like', authenticateToken, toggleLikePost);
-
 // dashboard
 router.get('/practice/latest', authenticateToken, viewLatestPractice);
 router.get('/goals/latest', authenticateToken, viewLatestGoal);

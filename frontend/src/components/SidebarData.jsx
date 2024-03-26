@@ -9,37 +9,37 @@ export const SidebarData = [
     {
         title: "Dashboard",
         path: "/dashboard",
-        icon: <MdIcons.MdSpaceDashboard/>,
-        cName: 'sid-text'
-    },
-    {
-        title: "Profile",
-        path: "/profile",
-        icon: <FaIcons.FaUser/>,
+        icon: <MdIcons.MdSpaceDashboard />,
         cName: 'sid-text'
     },
     {
         title: "Practice",
         path: "/practice/",
-        icon: <IoIcons.IoMusicalNotes/>,
+        icon: <IoIcons.IoMusicalNotes />,
         cName: 'sid-text'
     },
     {
         title: "Goal",
         path: "/goal",
-        icon: <GoIcons.GoGoal/>,
-        cName: 'sid-text'
-    },
-    {
-        title: "Settings",
-        path: "/settings",
-        icon: <IoIcons.IoSettings/>,
+        icon: <GoIcons.GoGoal />,
         cName: 'sid-text'
     },
     {
         title: "Forum",
         path: "/forum",
-        icon: <MdIcons.MdForum/>,
+        icon: <MdIcons.MdForum />,
+        cName: 'sid-text'
+    },
+    {
+        title: "Help",
+        path: "/help",
+        icon: <IoIcons.IoHelp />,
+        cName: 'sid-text'
+    },
+    {
+        title: "Contact",
+        path: '/contact',
+        icon: <MdIcons.MdOutlineSupportAgent/>,
         cName: 'sid-text'
     }
 ]

@@ -12,12 +12,12 @@ import ErrorPage from './pages/ErrorPage';
 import ResultPage from './pages/ResultPage';
 import MaybeShowNavBar from './components/MaybeShowNavBar';
 import About from './pages/About';
-import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
 import Practice from './pages/Practice';
 import Goal from './pages/Goal';
 import Forum from './pages/Forum';
+import Help from './pages/Help';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
@@ -35,7 +35,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />}></Route>
               <Route path='/result' element={<ResultPage />}></Route>
               <Route path='/about' element={<About />}></Route>
-              <Route path='/settings' element={<Settings />}></Route>
+              <Route path='/help' element={<Help />}></Route>
               <Route path='/profile/' element={<Profile/>}></Route>
               <Route path='/contact' element={<Contact/>}></Route>
               <Route path='/practice/' element={<Practice/>}></Route>

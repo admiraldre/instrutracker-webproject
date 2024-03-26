@@ -69,7 +69,7 @@ const Home = () => {
           <section className='join'>
             <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
           </section>
-          <img src='../assets/reznor-theory-04-right-where-it-belongs.png' alt='music notes'></img>
+         
         </section>
         <div className='feature-maintitle'>
           <div className="feature-mt">InstruTracker's Features</div>
