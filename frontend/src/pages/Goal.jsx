@@ -7,15 +7,13 @@ const Goals = () => {
   const [goals, setGoals] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
-  // Function to get the authentication token
-  const getAuthToken = () => localStorage.getItem('token'); // Adjust based on your token storage method
+  const getAuthToken = () => localStorage.getItem('token'); 
 
-  // Axios instance with the base URL and headers set
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000', // Adjust based on your server's address
+    baseURL: 'http://localhost:8000',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${getAuthToken()}`, // Include the auth token in all requests
+      Authorization: `Bearer ${getAuthToken()}`, 
     },
   });
 
@@ -33,10 +31,10 @@ const Goals = () => {
       } else {
         await axiosInstance.put(`/goals/${editingId}`, goal);
         setGoals(goals.map((g) => (g._id === editingId ? { ...g, ...goal } : g)));
-        setEditingId(null); // Exit editing mode
+        setEditingId(null); 
       }
-      fetchGoals(); // Refresh the list after adding/updating
-      setGoal({ title: '', description: '' }); // Reset the form
+      fetchGoals();
+      setGoal({ title: '', description: '' }); 
     } catch (error) {
       console.error('Failed to submit goal', error);
     }
@@ -66,7 +64,6 @@ const Goals = () => {
     }
   };
 
-  // Fetch goals when the component mounts
   useEffect(() => {
     fetchGoals();
   }, []);

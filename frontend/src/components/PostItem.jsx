@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import PostUser from './PostUser';
-import * as AiIcons from 'react-icons/ai'
-import * as FaIcons from 'react-icons/fa'
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
 
 const PostItem = ({ postID, title, description, userID }) => {
-    const [like, setLike] = useState();
+    const [liked, setLiked] = useState(false);
+
+    const toggleLike = async () => {
+        try {
+            const response = await axios.post(`/forum/${postID}/like`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`, 
+                },
+            });
+            setLiked(!liked);
+        } catch (error) {
+            console.error('Error toggling like', error);
+        }
+    };
 
     return (
         <div>
@@ -14,17 +27,18 @@ const PostItem = ({ postID, title, description, userID }) => {
                     <big>{title}</big>
                     <p>{description}</p>
                     <div className='post-info'>
-                        <PostUser />
+                        <PostUser userID={userID} /> 
                         <div className="like-comment">
-                            <button><AiIcons.AiOutlineLike /></button>
-                            {/* <AiIcons.AiFillLike/> this is for when it's liked!*/}
+                            <button onClick={toggleLike}>
+                                {liked ? <AiIcons.AiFillLike /> : <AiIcons.AiOutlineLike />}
+                            </button>
                             <button><FaIcons.FaRegCommentDots /></button>
                         </div>
                     </div>
                 </div>
             </article> <br />
         </div>
-    )
-}
+    );
+};
 
-export default PostItem
+export default PostItem;

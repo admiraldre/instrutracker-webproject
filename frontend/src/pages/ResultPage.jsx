@@ -10,13 +10,11 @@ const ResultPage = () => {
   console.log('Questions:', questions);
 
   const calculateResult = () => {
-    // Count the occurrences of each answer
     const counts = { a: 0, b: 0, c: 0, d: 0 };
     for (const answer of Object.values(answers)) {
       counts[answer]++;
     }
 
-    // Find the most frequent answer
     let maxCount = 0;
     let result = '';
     for (const [option, count] of Object.entries(counts)) {
@@ -26,7 +24,6 @@ const ResultPage = () => {
       }
     }
 
-    // Map the most frequent answer to instrument family
     const instrumentFamilies = {
       a: "Brass",
       b: "Woodwind",

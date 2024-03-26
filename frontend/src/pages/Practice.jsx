@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 
 const Practice = () => {
   const [session, setSession] = useState({ date: '', duration: '', notes: '' });
   const [sessions, setSessions] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
-  // Function to fetch all practice sessions for the logged-in user
+
   const fetchSessions = async () => {
     try {
       const response = await axios.get('/practice');
@@ -30,15 +30,13 @@ const Practice = () => {
     e.preventDefault();
     try {
       if (editingId === null) {
-        // Add new session
         await axios.post('/practice', session);
     } else {
-        // Update existing session
         await axios.put(`/practice/${editingId}`, session);
-        setEditingId(null); // Exit editing mode
+        setEditingId(null);
     }    
-      fetchSessions(); // Refresh the list after adding/updating
-      setSession({ date: '', duration: '', notes: '' }); // Reset the form
+      fetchSessions(); 
+      setSession({ date: '', duration: '', notes: '' }); 
     } catch (error) {
       console.error('Error submitting session', error);
     }
@@ -53,7 +51,7 @@ const Practice = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/practice/${id}`, {withCredentials: true});
-      fetchSessions(); // Refresh the list after deletion
+      fetchSessions();
     } catch (error) {
       console.error('Error deleting session', error);
     }

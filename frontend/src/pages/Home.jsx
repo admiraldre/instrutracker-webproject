@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [quizStarted, setQuizStarted] = useState(false); // State to track if the quiz has started
+  const [quizStarted, setQuizStarted] = useState(false); 
 
   const questions = [
     {
@@ -56,7 +56,7 @@ const Home = () => {
   };
 
   const startQuiz = () => {
-    setQuizStarted(true); // Set quizStarted to true when "Take quiz" button is clicked
+    setQuizStarted(true); 
   };
 
   return (

@@ -3,7 +3,8 @@ import cors from 'cors';
 import {
     test, registerUser, loginUser, getProfile, userLogout,
     logPractice, viewPractice, deletePractice, updatePractice,
-    viewGoal, createGoal, updateGoal, deleteGoal, authenticateToken
+    viewGoal, createGoal, updateGoal, deleteGoal, authenticateToken,
+    createPost, viewPost, toggleLikePost, viewLatestGoal,viewLatestPractice
 } from '../controllers/authControllers.js'
 const router = express.Router();
 
@@ -37,8 +38,14 @@ router.get('/goals', authenticateToken, viewGoal);
 router.put('/goals/:id', authenticateToken, updateGoal);
 router.delete('/goals/:id', authenticateToken, deleteGoal);
 
+//for forum
+router.post('/forum', createPost);
+router.get('/forum', viewPost);
+router.post('/forum/:postId/like', authenticateToken, toggleLikePost);
 
-
+// dashboard
+router.get('/practice/latest', authenticateToken, viewLatestPractice);
+router.get('/goals/latest', authenticateToken, viewLatestGoal);
 
 
 export default router;

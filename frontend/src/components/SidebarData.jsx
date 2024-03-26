@@ -14,7 +14,7 @@ export const SidebarData = [
     },
     {
         title: "Profile",
-        path: "/profile/:id",
+        path: "/profile",
         icon: <FaIcons.FaUser/>,
         cName: 'sid-text'
     },

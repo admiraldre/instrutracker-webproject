@@ -1,53 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import PostItem from './PostItem';
 
-const DUMMY_POSTS = [
-    {
-        id: '1',
-        title: 'First post tehe',
-        description: 'This is my first ever post description whatever',
-        userID: 2
-    },
-    {
-        id: '2',
-        title: 'Second post tehe',
-        description: 'This is my second ever post description whatever',
-        userID: 1
-    },
-    {
-        id: '3',
-        title: 'Third post tehe',
-        description: 'This is my third ever post description whatever',
-        userID: 8
-    },
-    {
-        id: '4',
-        title: 'Fourth post tehe',
-        description: 'This is my fourth ever post description whatever',
-        userID: 5
-    },
-    {
-        id: '7',
-        title: 'Fifth post tehe',
-        description: 'This is my fifth ever post description whatever',
-        userID: 3
-    }
-
-]
-
 const Posts = () => {
-    const [posts, setPosts] = useState(DUMMY_POSTS);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const { data } = await axios.get('/forum');
+                setPosts(data);
+            } catch (error) {
+                console.error('Failed to fetch posts', error);
+            }
+        };
+
+        fetchPosts();
+    }, []);
+
     return (
         <div className="container-post">
             <section className='posts'>
-                {
-                    posts.map(({ id, title, description, userID }) =>
-                        <PostItem key={id} postID={id} title={title} description={description} userID={userID} />)
+                {posts.map(({ id, title, description, userID }) =>
+                    <PostItem key={id} postID={id} title={title} description={description} userID={userID} />)
                 }
             </section>
         </div>
+    );
+};
 
-    )
-}
-
-export default Posts
+export default Posts;

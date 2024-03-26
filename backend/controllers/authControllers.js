@@ -19,7 +19,7 @@ export const authenticateToken = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = { id: decoded.id, name: decoded.name, email: decoded.email };
-        next(); 
+        next();
     } catch (error) {
         return res.status(401).json({ message: 'Invalid Token' });
     }
@@ -165,7 +165,7 @@ export const deletePractice = async (req, res) => {
     if (!userId) return res.status(401).json({ error: 'Unauthorized' });
 
     try {
-        const { id } = req.params; 
+        const { id } = req.params;
         await Practice.deleteOne({ _id: id, userId });
         res.json({ message: 'Practice session deleted' });
     } catch (error) {
@@ -200,7 +200,7 @@ export const updatePractice = async (req, res) => {
 //create Goal
 
 export const createGoal = async (req, res) => {
-    const userId = req.user.id; 
+    const userId = req.user.id;
     const { title, description } = req.body;
     try {
         const newGoal = await Goal.create({ userId, title, description });
@@ -213,7 +213,7 @@ export const createGoal = async (req, res) => {
 
 // view Goal
 export const viewGoal = async (req, res) => {
-    const userId = req.user.id; 
+    const userId = req.user.id;
     try {
         const goals = await Goal.find({ userId });
         res.json(goals);
@@ -258,5 +258,74 @@ export const deleteGoal = async (req, res) => {
         res.json({ message: 'Goal deleted successfully' });
     } catch (error) {
         res.status(400).json({ message: 'Error deleting goal', error });
+    }
+};
+
+export const viewPost = async (req, res) => {
+    try {
+        const posts = await Post.find().populate('comments');
+        res.json(posts);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching posts', error });
+    }
+};
+
+export const createPost = async (req, res) => {
+    const { title, description, img, userID } = req.body;
+    try {
+      const newPost = new Post({ title, description, img, userID });
+      await newPost.save();
+      res.status(201).json(newPost);
+    } catch (error) {
+      res.status(400).json({ message: 'Error creating post', error });
+    }
+  };
+
+  export const toggleLikePost = async (req, res) => {
+    const { postId } = req.params; 
+    const userId = req.user.id; 
+
+    try {
+        const post = await Post.findById(postId);
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
+        const index = post.likes.indexOf(userId);
+        if (index === -1) {
+            post.likes.push(userId);
+        } else {
+            post.likes.splice(index, 1);
+        }
+        await post.save();
+
+        res.json(post);
+    } catch (error) {
+        res.status(500).json({ message: 'Error toggling like', error });
+    }
+};
+
+//fetch latestPractice
+
+export const viewLatestPractice = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const latestSession = await Practice.findOne({ userId }).sort({ _id: -1 });
+        res.json(latestSession);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching latest practice session', error });
+    }
+};
+
+// Fetch the latest goal
+export const viewLatestGoal = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const latestGoal = await Goal.findOne({ userId }).sort({ _id: -1 });
+        res.json(latestGoal);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching latest goal', error });
     }
 };

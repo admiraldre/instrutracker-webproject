@@ -4,7 +4,7 @@ import { UserContext } from '../../context/userContext';
 import Sidebar from '../components/Sidebar';
 
 const Settings = () => {
-  const { user, setUser } = useContext(UserContext); // Assuming setUser is available to update user context
+  const { user, setUser } = useContext(UserContext); 
   const [name, setName] = useState(user?.name || '');
   const [email, setEmail] = useState(user?.email || '');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -14,13 +14,11 @@ const Settings = () => {
   const handleUpdateDetails = async (e) => {
     e.preventDefault();
     try {
-      // Replace URL with your actual endpoint
       const response = await axios.put(`http://localhost:5173/settings/${user._id}`, {
         name,
         email,
       }, { withCredentials: true });
       alert('User details updated successfully!');
-      // Update user context if needed
       setUser(response.data);
     } catch (error) {
       console.error('Failed to update user details:', error);
@@ -35,7 +33,6 @@ const Settings = () => {
       return;
     }
     try {
-      // Replace URL with your actual endpoint
       await axios.put(`http://localhost:5173/settings/${user._id}`, {
         currentPassword,
         newPassword,
