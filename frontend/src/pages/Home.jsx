@@ -66,10 +66,10 @@ const Home = () => {
           <h1 className='home-title'>InstruTracker</h1>
           <h3 className='home-subtitle'>The next-generation music practice platform.</h3>
           <h5 className='home-subSubtitle'>Track, set goals, share your musical journey in practicing musical instruments with InstruTracker.</h5>
-          <img src="./assets/drums.png" alt="" />
           <section className='join'>
             <button className='join-button' onClick={() => navigate('/register')}>Join Now!</button>
           </section>
+          <img src='../assets/reznor-theory-04-right-where-it-belongs.png' alt='music notes'></img>
         </section>
         <div className='feature-maintitle'>
           <div className="feature-mt">InstruTracker's Features</div>

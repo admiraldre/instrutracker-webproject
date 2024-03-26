@@ -61,7 +61,7 @@ const Practice = () => {
     <div>
       <Sidebar>
         <div className='practicepage'>
-          <div className='page-title'>My Practice Log</div>
+          <div className='page-title'>My Practice Log</div><br/>
           <form onSubmit={handleSubmit}>
             <input type="date" name="date" value={session.date} onChange={handleChange} required />
             <input type="text" name="duration" placeholder="Duration" value={session.duration} onChange={handleChange} required />
@@ -72,8 +72,8 @@ const Practice = () => {
             {sessions.map((session) => (
               <li key={session._id}>
                 {session.date} - {session.duration} - {session.notes}
-                <button onClick={() => handleEdit(session._id)}>Edit</button>
-                <button onClick={() => handleDelete(session._id)}>Delete</button>
+                <button onClick={() => handleEdit(session._id)} className='edit-btn'>Edit</button>
+                <button onClick={() => handleDelete(session._id)}className='danger-btn'>Delete</button>
               </li>
             ))}
           </ul>

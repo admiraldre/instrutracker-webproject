@@ -459,6 +459,7 @@ footer {
 .homepage {
   display: flex;
   flex-direction: column;
+  
 }
 
 .hero-section {
@@ -650,49 +651,9 @@ footer {
   height: auto;
   width: auto;
 }
-
-.forumPage .create-post {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bg-300);
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
-
-.forumpage .pagetitle {
-  font-size: 60px;
-}
-
-.forumPage .input-post {
-  width: 50vw;
-  padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid var(--text-200);
-  color: var(--bg-100);
-}
-
-.forumPage .input-postdesc {
-  width: 50vw;
-  padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid var(--text-200);
-  color: var(--bg-100);
-}
-
-.forumPage .chooseImg {
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
-}
-
-.forumPage .postButton {
-  background-color: var(--accent-100);
-  width: fit-content;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.forumPage input[type="text"],
+textarea{
+  color: black;
 }
 
 /* posts in forum page */
@@ -846,6 +807,44 @@ footer {
   
 }
 
+.dashboard-greeting{
+  font-size: 2rem;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.dashboardpage .goal-section{
+  background-color: var(--primary-100);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--bg-100);
+}
+
+.dashboardpage .goal-section h3{
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+.dashboardpage .goal-section span{
+  font-weight: bold;
+}
+
+.dashboardpage .practice-section{
+  background-color: var(--primary-100);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--bg-100);
+}
+
+.dashboardpage .practice-section h3{
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.dashboardpage .practice-section span{
+  font-weight: bold;
+}
 /* settings */
 .settingspage{
   display: flex;
@@ -914,13 +913,13 @@ footer {
 input[type="text"],
 textarea {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--text-100);
   border-radius: 5px; 
 }
 
 .practicepage form button{
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: var(--accent-100);
   color: white;
   border: none;
   border-radius: 5px;
@@ -945,8 +944,10 @@ textarea{
   border-radius: 5px;
 }
 .practicepage ul button{
-  background-color: #dc3545;
+  background-color: var(--accent-100);
   margin-left: 10px; 
+  padding: 0.25rem;
+  border-radius: 0.3rem;
 }
 
 /* Goals */
@@ -997,13 +998,15 @@ textarea{
   background-color: var(--bg-300); 
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 5px;
+
 }
 
 .goalspage ul button {
-  background-color: #ffc107; 
+  background-color: var(--primary-100) ;
   color: black; 
   margin-left: 10px;
+  padding: .25rem;
+  border-radius: 0.3rem;
 }
 
 

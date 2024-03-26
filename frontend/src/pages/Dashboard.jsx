@@ -11,10 +11,10 @@ const Dashboard = () => {
   const getAuthToken = () => localStorage.getItem('token');
 
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000', 
+    baseURL: 'http://localhost:8000',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${getAuthToken()}`, 
+      Authorization: `Bearer ${getAuthToken()}`,
     },
   });
 
@@ -47,27 +47,26 @@ const Dashboard = () => {
         <div className="dashboardpage">
           <div className="dashboard-top">
             <div className="page-title">Dashboard</div>
-            <div className="dashboard-greeting">{user && <h2>Hello {user.name}!</h2>}</div>
           </div>
-
+          <div className="dashboard-greeting">{user && <h2>Hello {user.name}!</h2>}</div><br/>
           <div className="goal-section">
             {latestGoal ? (
               <div>
                 <h3>Latest Goal</h3>
-                <p>Title: {latestGoal.title}</p>
-                <p>Description: {latestGoal.description}</p>
+                <p><span>Title:</span> {latestGoal.title}</p>
+                <p><span>Description:</span> {latestGoal.description}</p>
               </div>
             ) : (
               <p>No goals have been set yet.</p>
             )}
-          </div>
+          </div><br/>
           <div className="practice-section">
             {latestSession ? (
               <div>
                 <h3>Latest Practice Session</h3>
-                <p>Date: {latestSession.date}</p>
-                <p>Duration: {latestSession.duration}</p>
-                <p>Notes: {latestSession.notes}</p>
+                <p><span>Date:</span> {latestSession.date}</p>
+                <p><span>Duration:</span>  {latestSession.duration}</p>
+                <p><span>Notes:</span>  {latestSession.notes}</p>
               </div>
             ) : (
               <p>No practice sessions have been logged yet.</p>

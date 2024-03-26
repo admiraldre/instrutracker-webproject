@@ -72,7 +72,7 @@ const Goals = () => {
     <div>
       <Sidebar>
         <div className='goalspage'>
-          <div className='page-title'>My Goals</div>
+          <div className='page-title'>My Goals</div><br/>
           <form onSubmit={handleSubmit}>
             <input
               type="text"

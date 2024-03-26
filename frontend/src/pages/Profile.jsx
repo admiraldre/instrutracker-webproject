@@ -1,76 +1,67 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/userContext';
 import Sidebar from '../components/Sidebar';
-import { Link } from 'react-router-dom';
-const DUMMY_POSTS = [
-    {
-        id: '1',
-        title: 'First post tehe',
-        description: 'This is my first ever post description whatever',
-        userID: 2
-    },
-    {
-        id: '2',
-        title: 'Second post tehe',
-        description: 'This is my second ever post description whatever',
-        userID: 1
-    },
-    {
-        id: '3',
-        title: 'Third post tehe',
-        description: 'This is my third ever post description whatever',
-        userID: 8
-    },
-    {
-        id: '4',
-        title: 'Fourth post tehe',
-        description: 'This is my fourth ever post description whatever',
-        userID: 5
-    },
-    {
-        id: '7',
-        title: 'Fifth post tehe',
-        description: 'This is my fifth ever post description whatever',
-        userID: 3
-    }
-
-]
+import axios from 'axios'; 
 
 const Profile = () => {
     const { user } = useContext(UserContext);
-    const [posts, setPosts] = useState(DUMMY_POSTS);
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchUserPosts = async () => {
+            if (user) {
+                try {
+                    const response = await axios.get(`/forum/user/${user.id}`);
+                    const userPosts = response.data.filter(post => post.userID === user.id);
+                    setPosts(userPosts);
+                } catch (error) {
+                    console.error("Error fetching user's posts:", error);
+                }
+            }
+        };
+
+        fetchUserPosts();
+    }, [user]);
+
+    const handleDelete = async (postId) => {
+        try {
+            await axios.delete(`/forum/${postId}`);
+            setPosts(posts.filter(post => post.id !== postId));
+        } catch (error) {
+            console.error("Error deleting post:", error);
+        }
+    };
+
     return (
         <Sidebar>
             <div className="profilepage">
                 <div className="profile-top">
                     <div className='page-title'>My Profile</div>
-                    <h1>{!!user && (<h1>{user.name}'s Posts</h1>)}</h1>
+                    {!!user && <h1>{user.name}'s Posts</h1>}
                 </div>
 
                 <section className='myPosts'>
-                    {
-                        posts.length ? <div className="userposts">
-                            {
-                                posts.map(post => (
-                                    <article key={post.id} className='currentuserpost'>
-                                        <div className='currentuserpost-info'>
-                                            <h5>{post.title}</h5>
-                                        </div>
-                                        <div className='currentuserpost-actions'>
-                                            <Link to={`/forum/${post.id}`} className='normal-btn'>View</Link>
-                                            <Link to={`/forum/${post.id}/edit`} className='edit-btn'>Edit</Link>
-                                            <Link to={`/forum/${post.id}/delete`} className='danger-btn'>Delete</Link>
-                                        </div>
-                                    </article>
-                                ))
-                            }
-                        </div> : <h2>You have no posts yet.</h2>
-                    }
+                    {posts.length ? (
+                        <div className="userposts">
+                            {posts.map(post => (
+                                <article key={post.id} className='currentuserpost'>
+                                    <div className='currentuserpost-info'>
+                                        <h5>{post.title}</h5>
+                                        <p>{post.description}</p>
+                                    </div>
+                                    <div className='currentuserpost-actions'>
+                                        <button className='normal-btn'>View</button>
+                                        <button className='edit-btn'>Edit</button>
+                                        <button onClick={() => handleDelete(post.id)} className='danger-btn'>Delete</button>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    ) : <h2>You have no posts yet.</h2>}
                 </section>
             </div>
         </Sidebar>
+    );
+};
 
-    )
-}
-
-export default Profile
+export default Profile;

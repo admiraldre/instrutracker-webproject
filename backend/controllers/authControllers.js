@@ -248,7 +248,7 @@ export const updateGoal = async (req, res) => {
 // delete Goal
 
 export const deleteGoal = async (req, res) => {
-    const userId = req.user.id; // Use authenticated user's ID
+    const userId = req.user.id; 
     const { id } = req.params;
     try {
         const result = await Goal.findOneAndDelete({ _id: id, userId });
@@ -263,47 +263,41 @@ export const deleteGoal = async (req, res) => {
 
 export const viewPost = async (req, res) => {
     try {
-        const posts = await Post.find().populate('comments');
+        const posts = await Post.find();
         res.json(posts);
-    } catch (error) {
-        res.status(400).json({ message: 'Error fetching posts', error });
-    }
+      } catch (error) {
+        res.status(500).json({ message: "Error fetching posts", error });
+      }
 };
 
 export const createPost = async (req, res) => {
-    const { title, description, img, userID } = req.body;
     try {
-      const newPost = new Post({ title, description, img, userID });
-      await newPost.save();
-      res.status(201).json(newPost);
-    } catch (error) {
-      res.status(400).json({ message: 'Error creating post', error });
-    }
+        const { title, description } = req.body;
+        const newPost = new Post({ title, description });
+        await newPost.save();
+        res.status(201).json(newPost);
+      } catch (error) {
+        res.status(400).json({ message: "Error creating post", error });
+      }
   };
 
   export const toggleLikePost = async (req, res) => {
-    const { postId } = req.params; 
-    const userId = req.user.id; 
-
     try {
-        const post = await Post.findById(postId);
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
-        }
+      const post = await Post.findById(req.params.postId);
 
-        const index = post.likes.indexOf(userId);
-        if (index === -1) {
-            post.likes.push(userId);
-        } else {
-            post.likes.splice(index, 1);
-        }
-        await post.save();
-
-        res.json(post);
+      const index = post.likes.indexOf(req.body.userId);
+      if (index === -1) {
+        post.likes.push(req.body.userId);
+      } else {
+        post.likes.splice(index, 1);
+      }
+      await post.save();
+      res.json(post);
     } catch (error) {
-        res.status(500).json({ message: 'Error toggling like', error });
+      res.status(500).json({ message: "Error toggling like", error });
     }
-};
+  }
+
 
 //fetch latestPractice
 
