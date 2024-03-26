@@ -38,8 +38,8 @@ function App() {
               <Route path='/settings' element={<Settings />}></Route>
               <Route path='/profile/:id' element={<Profile/>}></Route>
               <Route path='/contact' element={<Contact/>}></Route>
-              <Route path='/practice' element={<Practice/>}></Route>
-              <Route path='/goal' element={<Goal/>}></Route>
+              <Route path='/practice/' element={<Practice/>}></Route>
+              <Route path='/goal/' element={<Goal/>}></Route>
               <Route path='/forum' element={<Forum/>}></Route>
               <Route path='*' element={<ErrorPage />}></Route>
             </Routes>

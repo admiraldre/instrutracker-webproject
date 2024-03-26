@@ -1,12 +1,13 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const ProfileSchema = new Schema ({
-    user: { type: Schema.Types.ObjectId, ref: 'User'},
+const goalSchema = new Schema({
+    userId: { type: Schema.Types.ObjectId, ref: 'User' },
     title: String,
-    goals: [String],
-});
+    description: String
+}, { timestamps: true });
 
-const ProfileModel = mongoose.model('Profile', ProfileSchema);
-export default ProfileModel;
+const Goal = mongoose.model('Goal', goalSchema);
+
+export default Goal;

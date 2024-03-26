@@ -669,6 +669,7 @@ footer {
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid var(--text-200);
+  color: var(--bg-100);
 }
 
 .forumPage .input-postdesc {
@@ -677,6 +678,7 @@ footer {
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid var(--text-200);
+  color: var(--bg-100);
 }
 
 .forumPage .chooseImg {
@@ -894,3 +896,118 @@ footer {
   color: var(--bg-100);
 }
 
+/* Practice */
+.practicepage{
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.practicepage form{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  color: var(--bg-100);
+}
+.practicepage form input[type="date"],
+input[type="text"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners for input fields */
+}
+
+.practicepage form button{
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+textarea{
+  resize: vertical;
+}
+
+.practicepage ul{
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.practicepage ul li{
+  background-color: var(--bg-300);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.practicepage ul button{
+  background-color: #dc3545;
+  margin-left: 10px; 
+}
+
+/* Goals */
+
+.goalspage {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.goalspage form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--bg-100); /* Adjust color variable as needed */
+}
+
+.goalspage form input[type="text"],
+.goalspage form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners for input fields */
+}
+
+.goalspage form button {
+  padding: 10px 20px;
+  background-color: #28a745; /* Slightly different button color for variety */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.goalspage textarea {
+  resize: vertical;
+}
+
+.goalspage ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.goalspage ul li {
+  background-color: var(--bg-300); /* Adjust background color variable as needed */
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.goalspage ul button {
+  background-color: #ffc107; /* Different color for the 'Edit' button for variety */
+  color: black; /* Ensuring text color is readable on the new button background */
+  margin-left: 10px;
+}
+
+
+/* settings */
+.profile-details input{
+  color: var(--bg-100);
+}

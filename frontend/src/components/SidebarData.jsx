@@ -20,7 +20,7 @@ export const SidebarData = [
     },
     {
         title: "Practice",
-        path: "/practice",
+        path: "/practice/",
         icon: <IoIcons.IoMusicalNotes/>,
         cName: 'sid-text'
     },
